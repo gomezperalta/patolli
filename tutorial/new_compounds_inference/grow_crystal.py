@@ -3,7 +3,7 @@
 """
 Created on Mon Aug 26 16:21:23 2019
 
-@author: ivan
+@author: iG
 """
 
 import pandas as pd
@@ -19,16 +19,15 @@ def CrystalMaker(motif = pd.DataFrame(),abc = [1,1,1],
     
     motif.columns = np.arange(len(motif.columns))
     print(motif)
-    motif[4]=1*(motif[1].values == 0)+1*(motif[2].values == 0)+1*(motif[3].values == 0) #Se crea la columna de ayuda 'suma' para ver que atomos ocupan posiciones igual a cero
+    motif[4]=1*(motif[1].values == 0)+1*(motif[2].values == 0)+1*(motif[3].values == 0)
     
-    motif_three=motif[motif[4] == 3].iloc[:,0:4].reset_index(drop=True) #Se elimina la columna de ayuda 'suma'
-    motif_two=motif[motif[4] == 2].iloc[:,0:4].reset_index(drop=True) #Se elimina la columna de ayuda 'suma'
-    motif_one=motif[motif[4] == 1].iloc[:,0:4].reset_index(drop=True) #Se elimina la columna de ayuda 'suma'
+    motif_three=motif[motif[4] == 3].iloc[:,0:4].reset_index(drop=True)
+    motif_two=motif[motif[4] == 2].iloc[:,0:4].reset_index(drop=True)
+    motif_one=motif[motif[4] == 1].iloc[:,0:4].reset_index(drop=True)
     motif=motif.iloc[:,0:4].reset_index(drop=True)
 
     volumen=abc[0]*abc[1]*abc[2]*np.sqrt(1-(np.cos(np.deg2rad(angles[0])))**2-(np.cos(np.deg2rad(angles[1])))**2-(np.cos(np.deg2rad(angles[2])))**2+2*np.cos(np.deg2rad(angles[0]))*np.cos(np.deg2rad(angles[1]))*np.cos(np.deg2rad(angles[2])))
 
-    #La variable matrix convierte las coordenadas relativas a coordenadas absolutas en un sistema cartesiano
     matrix=np.array([[abc[0],abc[1]*np.cos(np.deg2rad(angles[2])),abc[2]*np.cos(np.deg2rad(angles[1]))],
                       [0,abc[1]*np.sin(np.deg2rad(angles[2])),abc[2]*(np.cos(np.deg2rad(angles[0]))-np.cos(np.deg2rad(angles[1]))*np.cos(np.deg2rad(angles[2])))/np.sin(np.deg2rad(angles[2]))],
                       [0,0,volumen/(abc[0]*abc[1]*np.sin(np.deg2rad(angles[2])))]])
@@ -36,7 +35,6 @@ def CrystalMaker(motif = pd.DataFrame(),abc = [1,1,1],
     if len(motif_one) != 0:
         
         positions_one=motif_one.replace(0,1).iloc[:,1:].values
-        #positions_one=np.round(np.matmul(xyz_one,matrix),4)
         positions_one=pd.DataFrame(positions_one)
         positions_one=positions_one.rename(columns={0:1,1:2,2:3})
         positions_one[0]=motif_one[0]
@@ -44,7 +42,6 @@ def CrystalMaker(motif = pd.DataFrame(),abc = [1,1,1],
         
     tras0=np.array(list(itertools.product([0,1],repeat=3)))[1:7]
     tras1=np.array(list(itertools.product([0,1],repeat=3)))[1:]
-    
         
     if len(motif_two) != 0:
         for vector in tras0:
@@ -78,11 +75,7 @@ def CrystalMaker(motif = pd.DataFrame(),abc = [1,1,1],
         print('Each lattice parameter is increased by '+str(n)+' time(s)'+'\n')
 
         multiple=[m for m in range(n)]
-        
-        '''
-        for m in range(n):
-            multiple.append(m)
-        '''
+
         traslation=np.array(list(itertools.product(multiple, repeat=3)))[1:]
         
         for vector in traslation:
