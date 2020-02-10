@@ -1,0 +1,211 @@
+spacegroup: 221
+
+option: 0
+A: b 
+B: a
+X: d
+
+spacegroup: 127
+
+option: 0
+A: c
+B: a
+X: b, g
+
+spacegroup: 139
+
+option: 0
+A: a, b, c
+B: f
+X: h, n
+
+spacegroup: 204
+
+option: 0
+A: a, b
+B: c 
+X: g
+
+spacegroup: 71
+
+option: 0
+A: a,b,c,d
+B: k
+X: l, m, n
+
+spacegroup: 140
+
+option: 0 
+A: b
+B: c
+X: a, h
+
+
+spacegroup: 74
+
+option: 0
+A: e
+B: b
+X: e, g
+
+spacegroup: 167
+
+option: 0
+A: a
+B: b
+X: e
+
+spacegroup: 12
+
+option: 0
+A: i
+B: e
+X: i, g, h
+
+option: 1
+A: i
+B1: a
+B2: d
+X: i, j
+
+spacegroup: 15
+
+option: 0
+A: e
+B: b
+X: e, f
+
+option: 1
+A: e, e
+B1: c
+B2: d
+X: f, f, f
+
+spacegroup: 2
+
+option: 0
+A: i
+B: a, b
+X: i, i, i
+
+option: 1
+A: i, i, i, i
+B1: a, e, f, g
+B2: b, c, d, h
+X: i, i, i, i, i, i
+
+spacegroup: 63
+
+option: 0
+A: c, c
+B: d
+X: e, f, g
+
+spacegroup: 62
+
+option: 0
+A: c
+B: b 
+X: c, d
+
+spacegroup: 11
+
+option: 0
+A: e, e
+B: b, c
+X: e, e, f, f
+
+spacegroup: 137
+
+option: 0
+A: a, b, d
+B: e
+X: g, g, f
+
+spacegroup: 59
+
+option: 0
+A: a, a, b, b
+B: c, d
+X: e, e, f, f, g
+
+spacegroup: 48
+
+option: 0
+A: a, b, c, d
+B1: e
+B2: f
+X: m, m, m
+
+spacegroup: 201
+
+option: 0
+A: a, d
+B1: b
+B2: c
+X: h
+
+spacegroup: 13 
+
+option: 0
+A: e, e, f, f
+B1: a, b
+B2: c, d
+X: g, g, g, g
+
+spacegroup: 86
+
+option: 0
+A : a, b, e
+B1: c
+B2: d
+X: g, g, g
+
+spacegroup: 14
+
+option: 0
+A : e
+B1: c
+B2: d
+X: e, e, e
+
+spacegroup: 148
+
+option: 0
+A: c
+B1: a
+B2: b 
+X: f
+
+spacegroup: 134 
+
+option: 0
+A: a, b, c
+B1: e
+B2: f
+X: m, n
+
+spacegroup: 128 
+
+option: 0
+A:  c
+B1: a
+B2: b
+X: e, h
+
+spacegroup: 87 
+
+option: 0 
+A: b
+B1: a
+B2: b
+X: e, h
+
+spacegroup: 225 
+
+option: 0
+A: c
+B1: a
+B2: b
+X: e
+
