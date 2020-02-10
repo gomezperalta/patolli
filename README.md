@@ -29,3 +29,4 @@ When you run patolli.py, you will have to provide the name of the next txt-files
 
 You should not remove the files within the directory 'support'. Otherwise, patolli.py crashes.
 
+This program is part of my Ph.D. thesis. I thank to CONACyT (Scholarship No. 336003), the AI - Lab of Institute of Physics, UNAM, and to Dr. Xim Bokhimi for his guidance.
