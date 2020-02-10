@@ -1128,12 +1128,6 @@ dictionary = input('Give me the txt - file without extension which defines the '
                    'structures [default structure_dictionary]: '+'\n')
 database = input('Give me the pickle file with extension:'+ \
                      '\n'+'[default red_cod-db.pkl]'+'\n')
-local_function = input('Give me the name without extension of dictionary having ' + \
-                     'the local functions [Default: fij_2.0_25_diccio, others available: ' + '\n' + \
-                     'fij_1.5_25_diccio' + '\n' + \
-                     'fij_1.0_25_diccio' + '\n' + \
-                     'fij_0.5_25_diccio' + '\n' + \
-                     ']:' + '\n')
 sites = input('Specify a max number of sites [Default all available]:'+'\n')
 elements = input('Specify a min amount of elements within the Structure \
                   [Default all available]:' + '\n')
@@ -1152,9 +1146,6 @@ if not dictionary:
 
 if not database:
     database = 'support/red_cod-db.pkl'
-
-if not local_function:
-    local_function = 'fij_2.0_25_diccio'
     
 if not test_frac:
     test_frac = 0.15
@@ -1182,7 +1173,7 @@ test_with_all_false = bool(test_with_all_false)
 
 create_patolli(database= database, sites=sites, elements=elements, maxatoms=maxatoms, 
            dictionary=dictionary, features='support/datosrahm.csv', control_file=control_file, 
-           verbose=verbosity, test_frac = test_frac, local_function='support/' + local_function,
+           verbose=verbosity, test_frac = test_frac, local_function='support/fij_2.0_25_diccio',
            test_with_all_false=test_with_all_false)
 
 print('TASKS COMPLETED. EXITING PROGRAM...')
