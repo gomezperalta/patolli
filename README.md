@@ -1,2 +1,2 @@
 # patolli
-patolli is the program to develop Artificial Neural Networks which classifies crystal compounds with a binary classification model
+patolli is the name of a program to develop Artificial Neural Networks (ANNs). The developed ANNs classify the crystal compounds with a binary classification model. This programm was done to train the ANNs to classify the crystal compounds in terms of perovskite structures (True samples) or non-perovskite structures (False samples). However, the programm can be used for any kind of crystal compound.
