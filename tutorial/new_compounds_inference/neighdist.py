@@ -13,7 +13,7 @@ import itertools as it
 import time
 
 
-def positions(pos = dict(),angles=[],abc=[], dist=100):#archivo=1010902, dist = 100):
+def positions(pos = dict(),angles=[],abc=[], dist=100):
     
     mult = [np.asarray(list(pos[i].values())).shape[1] for i in range(len(pos))]
     
