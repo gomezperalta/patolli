@@ -6,7 +6,6 @@ Created on Tue Oct  2 10:29:44 2018
 @author: iG
 """
 
-import Wyckoff_finder as wf
 import pandas as pd
 import numpy as np
 import itertools as it
