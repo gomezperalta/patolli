@@ -14,35 +14,57 @@ import time
 
 def positions(pos = dict(),angles=[],abc=[], dist=100):
     
+    """
+    The aim of this function is to generate a crystal from the unit cell. This crystal must be as large enough to construct a sphere of the crystal 
+    atoms with a given cutoff radius.
+    Parameters:
+        pos: A Python dictionary. In fact, this is a dictionary of dictionaries. It contains the relative positions for each occupied Wyckoff site
+            within the unit cell.
+        angles: A list with the values of the angles alpha, beta and gamma of the unit cell.
+        cell: A list with the values of the vectors a, b and c of the unit cell.
+        dist: A float. This defines how large the generated crystal must be along the largest vector abc of the lattice parameter. This value must be
+            as large enough to construct a sphere of the crystal atoms with a cutoff radius (25 angstroms, in our work). 
+            This parameters is considered in angstroms.
+    Returns:
+        mot: A numpy array with the positions, in cartesian coordinates, occupied by the crystal atoms. 
+        zero: The index in mot corresponding to the center of the crystal.
+        n: an integer, which tells how many unit cells are along the largest abc lattice parameter.
+        mult: a list, with the multiplicities of each occupied Wyckoff site.
+    """
+    #The next line gets the multiplicity of each site.
     mult = [np.asarray(list(pos[i].values())).shape[1] for i in range(len(pos))]
     
     pos = np.concatenate([np.asarray(list(pos[item].values())) \
                           for item in range(len(pos))],axis=1)
         
     mot = pos.reshape((pos.shape[1],pos.shape[2]))
-    
+    #The next line computes the volume of the unit cell
     volumen=abc[0]*abc[1]*abc[2]*np.sqrt(1-(np.cos(np.deg2rad(angles[0])))**2 - \
                (np.cos(np.deg2rad(angles[1])))**2 -\
                (np.cos(np.deg2rad(angles[2])))**2 + \
                2*np.cos(np.deg2rad(angles[0]))*np.cos(np.deg2rad(angles[1]))*np.cos(np.deg2rad(angles[2])))
-
+    
+    #The next line defines the matrix that transforms the crystal system coordinates to cartesian ones.
     matrix=np.array([[abc[0],abc[1]*np.cos(np.deg2rad(angles[2])),abc[2]*np.cos(np.deg2rad(angles[1]))],
                       [0,abc[1]*np.sin(np.deg2rad(angles[2])),abc[2]*(np.cos(np.deg2rad(angles[0]))-np.cos(np.deg2rad(angles[1]))*np.cos(np.deg2rad(angles[2])))/np.sin(np.deg2rad(angles[2]))],
                       [0,0,volumen/(abc[0]*abc[1]*np.sin(np.deg2rad(angles[2])))]])
 
     mt = np.round(matrix,5)
-
+    
+    #The next line obtains how many unit cells lay on the direction of the largest abc lattice parameter.
     n = int(np.ceil((dist+10)/np.min(mt[mt > 0])))
 
     if n > 30:
         print('Number of unit cell for each half - dimension is ',n,'\n')
         n = 30
-
+    
+    #The next line generates all the traslational operations to create the crystal 
     tras = list(it.product(np.arange(-n,n+1),repeat=3))
-
-    zero = tras.index((0,0,0))
     tras = np.asarray(tras)
-
+    
+    #The next  line defines the center of the generated crystal.
+    zero = tras.index((0,0,0))
+    
     h,w = mot.shape
     d = tras.shape[0]
 
