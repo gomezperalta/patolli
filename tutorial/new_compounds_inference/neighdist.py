@@ -54,7 +54,8 @@ def positions(pos = dict(),angles=[],abc=[], dist=100):
     
     #The next line obtains how many unit cells lay on the direction of the largest abc lattice parameter.
     n = int(np.ceil((dist+10)/np.min(mt[mt > 0])))
-
+    
+    #If n is too large, it may cause to freeze your computer. To avoid this potential issue, it was consider a max-value for n = 30.
     if n > 30:
         print('Number of unit cell for each half - dimension is ',n,'\n')
         n = 30
