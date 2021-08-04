@@ -33,4 +33,4 @@ This program is part of my Ph.D. thesis. I thank to CONACyT (Scholarship No. 336
 
 If you benefit of this code, I appreciate that you cite the next article:
 
-Juan I. Gómez-Peralta, X. Bokhimi. Journal of Solid State Chemistry, Vol. 285 (2020) 121253.t
+Juan I. Gómez-Peralta, X. Bokhimi. Journal of Solid State Chemistry, Vol. 285 (2020) 121253.
